@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Credit Card Validator</title>
+
+	</head>
+	<body>
+		<input type="number" step="1" id="txtCard" name="Card"> <!--Girilen inputun sadece sayı olması için girdi tipini belirledik. -->
+		<button id="uyari">Send</button>
+
+		<script >
+			function CardNoControl(CardNo){
+				if (CardNo.length !=16) return false; //Sayı 16 haneli olması için//
+				if (isNaN(CardNo)) return false; //Girilen input boşluk olmaması için//
+				if (parseInt(CardNo) %2 == 1 ) return false; //Son Rakam Çift olması için sayının modunu aldık//
+				var CardNoToplam = 0;
+				var i = 0 ;
+				for (var i = 0; i < 15; i++) {
+					CardNoToplam +=parseInt(CardNo[i]);
+				}
+				if (CardNoToplam <16) return false; //Rakamların Toplamı 16'dan büyük olması koşulunu for döngüsü ile kontrol ettik.//
+
+				if (parseInt(CardNo[0]) == parseInt(CardNo[1]) && parseInt(CardNo[0]) == parseInt(CardNo[2]) && parseInt(CardNo[0]) == parseInt(CardNo[3]) && parseInt(CardNo[0]) == parseInt(CardNo[4]) && parseInt(CardNo[0]) == parseInt(CardNo[5]) && parseInt(CardNo[0]) == parseInt(CardNo[6]) && parseInt(CardNo[0]) == parseInt(CardNo[7]) && parseInt(CardNo[0]) == parseInt(CardNo[8]) && parseInt(CardNo[0]) == parseInt(CardNo[9]) && parseInt(CardNo[0]) == parseInt(CardNo[10]) && parseInt(CardNo[0]) == parseInt(CardNo[11]) && parseInt(CardNo[0]) == parseInt(CardNo[12]) && parseInt(CardNo[0]) == parseInt(CardNo[13]) && parseInt(CardNo[0]) == parseInt(CardNo[14]) && parseInt(CardNo[0]) == parseInt(CardNo[15] )) 
+					{return false;}
+				
+
+				return true;
+			}
+
+			"use script";
+			if (CardNoControl("2222222222226222")){
+				alert ("True");
+			}else{alert("False");} 
+		</script>
+	</body>
+</html>
